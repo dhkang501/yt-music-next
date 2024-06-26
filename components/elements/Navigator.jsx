@@ -37,7 +37,7 @@ const Navigator = () => {
       <section className='flex flex-col gap-2 p-4'>
         {routes.map((route) => {
           return (
-            <Link className={cn('text-[16px] flex flex-row items-center gap-4 hover:bg-neutral-700 rounded-lg p-2', route.isActive && 'bg-neutral-800')} key={route.label} href={route.href}z>
+            <Link className={cn('text-[16px] flex flex-row items-center gap-4 hover:bg-neutral-700 rounded-lg p-2', route.isActive && 'bg-neutral-800')} key={route.label} href={route.href}>
               <div>{route.icon}</div>
               <div>{route.label}</div>
             </Link>

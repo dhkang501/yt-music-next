@@ -6,7 +6,13 @@ const home = async () => {
   // await sleep(2000);
   // throw new Error("my error");
   return (
-    <div>HomePage</div>
+    <div className='min-h-[600px]'>
+      <div className='bg-gray-500 w-full h-[500px]'>HomePage</div>
+      <div className='bg-gray-500 w-full h-[500px]'>HomePage</div>
+      <div className='bg-gray-500 w-full h-[500px]'>HomePage</div>
+      <div className='bg-gray-500 w-full h-[500px]'>HomePage</div>
+
+    </div>
   )
 }
 
