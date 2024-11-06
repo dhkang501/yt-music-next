@@ -1,14 +1,14 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css"
-import { ThemeProvider } from "next-themes";
-import Sidebar from "@/components/Sidebar";
+import type {Metadata} from 'next';
+import {Inter} from 'next/font/google';
+import './globals.css';
+import {ThemeProvider} from 'next-themes';
+import Sidebar from '@/components/Sidebar';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({subsets: ['latin']});
 
 export const metadata: Metadata = {
-  title: "YT Music",
-  description: "Youtube music app",
+  title: 'YT Music',
+  description: 'Youtube music app',
 };
 
 export default function RootLayout({
@@ -23,11 +23,8 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="dark"
           enableSystem
-          disableTransitionOnChange
-        >
-          <Sidebar>
-            {children}
-          </Sidebar>
+          disableTransitionOnChange>
+          <Sidebar>{children}</Sidebar>
         </ThemeProvider>
       </body>
     </html>
