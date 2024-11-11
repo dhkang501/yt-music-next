@@ -6,12 +6,12 @@ import {useRouter} from 'next/navigation';
 import {MdMoreVert} from 'react-icons/md';
 import {FiPlay} from 'react-icons/fi';
 
-const PlayListCard = ({playlist}) => {
+const PlayListCard = ({playlist = {}} = {}) => {
   const {push} = useRouter();
-  const {id, owner, playlistName, songList} = playlist;
+  const {id, owner, playlistName, songList = []} = playlist ?? {};
 
   const songListLen = songList?.length;
-  const imgSrc = getRandomElementArray(songList).imageSrc;
+  const imgSrc = getRandomElementArray(songList)?.imageSrc;
 
   const onClickCard = () => {
     push(`/playlist?list=${id}`);
