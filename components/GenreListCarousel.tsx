@@ -9,32 +9,32 @@ import {
 import {TopSong} from '@/app/types';
 import PlayListCard from '@/components/PlayListCard';
 import {chunkArray} from '@/lib/utils';
-import SongCard from './SongCard';
+import GenreCard from './GenreCard';
 
-interface SongListCarouselProps {
+interface GenreListCarouselProps {
   title: string;
   subTitle?: string;
   Thumbnail?: React.ReactNode;
-  songListTop10: TopSong[];
+  genreList: string[];
 }
 
-const SongColumn = ({songList = []}: {songList: TopSong[]}) => {
+const GenreColumn = ({genreList = []}: {genreList: string[]}) => {
   return (
-    <div>
-      {songList.map((song, idx) => {
-        return <SongCard key={idx} song={song} />;
+    <div className="flex flex-col gap-4">
+      {genreList.map(genre => {
+        return <GenreCard key={genre} genre={genre} />;
       })}
     </div>
   );
 };
 
-const SongListCarousel: React.FC<SongListCarouselProps> = ({
+const GenreListCarousel: React.FC<GenreListCarouselProps> = ({
   title,
   subTitle,
   Thumbnail,
-  songListTop10,
+  genreList,
 }) => {
-  const chunkedTop10SongList = chunkArray(songListTop10, 4); // as TopSong[][]
+  const chunkedgenreList = chunkArray(genreList, 4) as string[][]; // as TopSong[][]
   return (
     <div className="w-full">
       <Carousel>
@@ -60,13 +60,10 @@ const SongListCarousel: React.FC<SongListCarouselProps> = ({
           </div>
         </div>
         <CarouselContent className="mt-4">
-          {chunkedTop10SongList?.map((songList, index) => {
+          {chunkedgenreList?.map((genreList, index) => {
             return (
-              <CarouselItem
-                key={index}
-                // 반응형에 맞게 카드 노출 개수 달라짐
-                className="lg:basis-1/2">
-                <SongColumn songList={songList} />
+              <CarouselItem key={index} className="basis-1/3 lg:basis-1/4">
+                <GenreColumn genreList={genreList} />
               </CarouselItem>
             );
           })}
@@ -76,4 +73,4 @@ const SongListCarousel: React.FC<SongListCarouselProps> = ({
   );
 };
 
-export default SongListCarousel;
+export default GenreListCarousel;
