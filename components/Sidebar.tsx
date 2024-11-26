@@ -1,14 +1,22 @@
+'use client';
 import React, {ReactNode} from 'react';
 import Logo from '@/components/elements/Logo';
 import Navigator from '@/components/elements/Navigator';
+import usePlayerState from '@/hook/usePlayerState';
+import {cn} from '@/lib/utils';
 
 interface SidebarProps {
   children: ReactNode;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({children}) => {
+  const {isVisiblePlayer} = usePlayerState();
   return (
-    <div className="flex h-full">
+    <div
+      className={cn(
+        'flex flex-row h-full',
+        isVisiblePlayer && 'h-[calc(100vh-72px)]',
+      )}>
       <nav className="w-[240px] hidden lg:block border-r-[1px] border-netural-600">
         <div className="p-[24px]">
           <Logo />
