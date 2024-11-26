@@ -20,7 +20,7 @@ export function getRandomElementArray(arr: any[]) {
 
 export function chunkArray(arr: any[], chunkSize: number) {
   //const resultArray = [[],[],[],[],[]]
-  const resultArray = [];
+  const resultArray: any[] = [];
   for (let i = 0; i < arr.length; i += chunkSize) {
     const chunk = arr.slice(i, i + chunkSize);
     resultArray.push(chunk);
