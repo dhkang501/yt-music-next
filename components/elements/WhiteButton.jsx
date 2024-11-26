@@ -1,8 +1,8 @@
 'use client';
 import {cn} from '@/lib/utils';
-import React from 'react';
+import React, {ReactNode} from 'react';
 
-const WhiteButton = ({icon, label, className, ...props}) => {
+const WhiteButton = ({icon = <></>, label, className = '', ...props}) => {
   return (
     <div
       className={cn(
