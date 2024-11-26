@@ -1,27 +1,29 @@
-import {getPlaylistById} from '@/lib/dummyData';
-import {getRandomElementArray} from '@/lib/utils';
-import {permanentRedirect} from 'next/navigation';
-import React from 'react';
-import HeaderBgChanger from '@/components/HeaderBgChanger';
+import {getPlaylistById} from '@/lib/dummyData'
+import {getRandomElementArray} from '@/lib/utils'
+import {permanentRedirect} from 'next/navigation'
+import React from 'react'
+import HeaderBgChanger from '@/components/HeaderBgChanger'
+import PlayListHead from '@/components/PlayListHead'
+import PagePadding from '@/components/PagePadding'
 
 interface PlaylistPageProps {
   searchParams: {
-    list: string;
-  };
+    list: string
+  }
 }
 
 const page = async (props: PlaylistPageProps) => {
-  const playlist = await getPlaylistById(Number(props.searchParams.list));
-  if (!playlist) permanentRedirect('/');
-  const imageSrc = getRandomElementArray(playlist.songList)?.imageSrc;
-  console.log('>>>>>>>>>>> ', imageSrc);
+  const playlist = await getPlaylistById(Number(props.searchParams.list))
+  if (!playlist) permanentRedirect('/')
+  const imageSrc = getRandomElementArray(playlist.songList)?.imageSrc
 
   return (
-    <div>
+    <PagePadding>
       <HeaderBgChanger imageSrc={imageSrc} />
-      playlist{props.searchParams.list}
-    </div>
-  );
-};
+      <div className="mt-12"></div>
+      <PlayListHead playlist={playlist} />
+    </PagePadding>
+  )
+}
 
-export default page;
+export default page
