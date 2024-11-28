@@ -1,4 +1,5 @@
 import {Song} from '@/app/types';
+import {dummyAllSongList} from '@/lib/dummyData';
 import {create} from 'zustand';
 
 interface PlayerState {
@@ -17,7 +18,7 @@ const usePlayerState = create<PlayerState>(set => ({
   //zustand를 이용한 상태 관리
   isVisiblePlayer: true,
   setIsVisiblePlayer: (isVisiblePlayer: boolean) => set({isVisiblePlayer}),
-  activeSong: null,
+  activeSong: dummyAllSongList[0], ///music/CattyBGM - 고양이 코.mp4
   prevPlayerQueue: [],
   nextPlayerQueue: [],
   // 새로운 곡 목록을 재생 큐에 추가하고, 첫번째 곡을 재생
