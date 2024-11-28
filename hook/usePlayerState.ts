@@ -18,9 +18,13 @@ const usePlayerState = create<PlayerState>(set => ({
   //zustand를 이용한 상태 관리
   isVisiblePlayer: true,
   setIsVisiblePlayer: (isVisiblePlayer: boolean) => set({isVisiblePlayer}),
-  activeSong: dummyAllSongList[0], ///music/CattyBGM - 고양이 코.mp4
+  activeSong: null,
   prevPlayerQueue: [],
-  nextPlayerQueue: [],
+  nextPlayerQueue: [
+    dummyAllSongList[1],
+    dummyAllSongList[2],
+    dummyAllSongList[0],
+  ],
   // 새로운 곡 목록을 재생 큐에 추가하고, 첫번째 곡을 재생
   addSongList: (songList: Song[]) =>
     set(prev => {
