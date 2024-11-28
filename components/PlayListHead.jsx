@@ -7,11 +7,18 @@ import {getRandomElementArray} from '@/lib/utils';
 import WhiteButton from '@/components/elements/WhiteButton';
 import DarkButton from '@/components/elements/DarkButton';
 import {FiFolderPlus} from 'react-icons/fi';
+import usePlayerState from '@/hook/usePlayerState';
 
 const PlayListHead = ({playlist = {}} = {}) => {
   const {playlistName, owner, songList} = playlist;
 
   const randomSong = getRandomElementArray(songList);
+
+  const {addSongList} = usePlayerState();
+
+  const onClickPlayList = () => {
+    addSongList(songList);
+  };
 
   return (
     <section>
@@ -27,6 +34,7 @@ const PlayListHead = ({playlist = {}} = {}) => {
           </div>
           <ul className="hidden lg:flex flex-row gap-4 mt-4">
             <WhiteButton
+              onClick={onClickPlayList}
               className={'w-[85px] text-[14px]'}
               icon={<FiPlay />}
               label="재생"
@@ -42,6 +50,7 @@ const PlayListHead = ({playlist = {}} = {}) => {
       </div>
       <ul className="flex flex-row gap-4 mt-4 lg:hidden">
         <WhiteButton
+          onClick={onClickPlayList}
           className={'w-[85px] text-[14px]'}
           icon={<FiPlay />}
           label="재생"

@@ -16,7 +16,7 @@ interface PlayerState {
 
 const usePlayerState = create<PlayerState>(set => ({
   //zustand를 이용한 상태 관리
-  isVisiblePlayer: true,
+  isVisiblePlayer: false,
   setIsVisiblePlayer: (isVisiblePlayer: boolean) => set({isVisiblePlayer}),
   activeSong: null,
   prevPlayerQueue: [],
