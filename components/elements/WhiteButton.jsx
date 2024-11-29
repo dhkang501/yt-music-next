@@ -5,7 +5,7 @@ import React, {ReactNode} from 'react';
 const WhiteButton = ({
   icon = <></>,
   label,
-  onClick,
+  onClick = () => {},
   className = '',
   ...props
 }) => {

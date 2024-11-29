@@ -19,8 +19,7 @@ interface SongCardProps {
 const SongCard: React.FC<SongCardProps> = ({song}) => {
   const {addSongList} = usePlayerState();
 
-  const onClickPlay = (e) => {
-    console.log(song);
+  const onClickPlay = () => {
     addSongList([song]);
   };
 
